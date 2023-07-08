@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Mahasiswa</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <h1>Data Mahasiswa</h1>
+    <!-- <div class="searchbar">
+      <input type="text" name="search" placeholder="Cari Data" />
+      <button><i class="ri-search-line"></i></button>
+    </div> -->
+    <form class="tambah-data" style="display: none">
+      <h3>Masukkan data</h3>
+      <label for="nama">Nama : </label>
+      <input type="text" id="nama" />
+      <label for="nim">Nim : </label>
+      <input type="number" id="nim" />
+      <label for="prodi">Prodi : </label>
+      <input type="text" id="prodi" />
+      <label for="email">Email : </label>
+      <input type="email" id="email" />
+      <label for="alamat">Alamat : </label>
+      <input type="text" id="alamat" />
+      <button onclick="check(event)">print</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>NIM</th>
+          <th>Program Studi</th>
+          <th>Email</th>
+          <th>Alamat</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+    <a onclick="showTambahdata()">Tambah Data</a>
+    <script src="script/script.js"></script>
+  </body>
+</html>
