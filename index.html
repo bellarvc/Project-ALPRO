@@ -11,38 +11,65 @@
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <h1>Data Mahasiswa</h1>
-    <!-- <div class="searchbar">
-      <input type="text" name="search" placeholder="Cari Data" />
-      <button><i class="ri-search-line"></i></button>
-    </div> -->
+    <h1>Perpustakaan</h1>
     <form class="tambah-data" style="display: none">
       <h3>Masukkan data</h3>
       <label for="nama">Nama : </label>
       <input type="text" id="nama" />
-      <label for="nim">Nim : </label>
-      <input type="number" id="nim" />
-      <label for="prodi">Prodi : </label>
-      <input type="text" id="prodi" />
-      <label for="email">Email : </label>
-      <input type="email" id="email" />
-      <label for="alamat">Alamat : </label>
-      <input type="text" id="alamat" />
+      <label for="tahun">Tahun Terbit : </label>
+      <input type="number" id="tahun" />
+      <label for="penulis">Penulis : </label>
+      <input type="text" id="penulis" />
+      <label for="penerbit">Penerbit : </label>
+      <input type="email" id="penerbit" />
+      <label for="halaman">Jumlah Halaman : </label>
+      <input type="text" id="halaman" />
+      <label for="stok">Jumlah Stok : </label>
+      <input type="number" id="stok" />
       <button onclick="check(event)">print</button>
     </form>
     <table>
       <thead>
         <tr>
-          <th>Nama</th>
-          <th>NIM</th>
-          <th>Program Studi</th>
-          <th>Email</th>
-          <th>Alamat</th>
+          <th>Nama Buku</th>
+          <th>
+            Tahun
+            <button onclick="selectionSortAsc(1)">
+              <i class="ri-sort-asc"></i>
+            </button>
+            <button onclick="selectionSortDesc(1)">
+              <i class="ri-sort-desc"></i>
+            </button>
+          </th>
+          <th>Penulis</th>
+          <th>Penerbit</th>
+          <th>Jumlah Halaman</th>
+          <th>
+            Stok
+            <button onclick="selectionSortAsc(5)">
+              <i class="ri-sort-asc"></i>
+            </button>
+            <button onclick="selectionSortDesc(5)">
+              <i class="ri-sort-desc"></i>
+            </button>
+          </th>
+          <th>Aksi</th>
         </tr>
       </thead>
-      <tbody id="table-body"></tbody>
+      <tbody id="tablebody"></tbody>
+      <tbody id="searchedTableBody"></tbody>
     </table>
     <a onclick="showTambahdata()">Tambah Data</a>
+    <input type="text" name="cari" id="cari" />
+    <button onclick="searchData()">Cari</button>
+    <button
+      onclick="window.location.reload()"
+      style="display: none"
+      id="backbtn"
+    >
+      back
+    </button>
+    <div class="hasil"></div>
     <script src="script/script.js"></script>
   </body>
 </html>
