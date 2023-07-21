@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpustakaan</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <h1 id="judul">Basis Data Perpustakaan</h1>
+    <div class="searchbar">
+      <input type="text" name="cari" id="cari" placeholder="Cari buku" />
+      <button onclick="searchData()"><i class="ri-search-2-line"></i></button>
+    </div>
+    <form class="tambah-data" style="display: none">
+      <button class="closebtn"><i class="ri-close-fill"></i></button>
+      <h3>Masukkan data</h3>
+      <label for="nama">Nama : </label>
+      <input type="text" id="nama" />
+      <label for="tahun">Tahun Terbit : </label>
+      <input type="number" id="tahun" />
+      <label for="penulis">Penulis : </label>
+      <input type="text" id="penulis" />
+      <label for="penerbit">Penerbit : </label>
+      <input type="email" id="penerbit" />
+      <label for="halaman">Jumlah Halaman : </label>
+      <input type="text" id="halaman" />
+      <label for="stok">Jumlah Stok : </label>
+      <input type="number" id="stok" />
+      <button onclick="check(event)">print</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama Buku</th>
+          <th>
+            Tahun
+            <button onclick="selectionSortAsc(1)">
+              <i class="ri-sort-asc"></i>
+            </button>
+            <button onclick="selectionSortDesc(1)">
+              <i class="ri-sort-desc"></i>
+            </button>
+          </th>
+          <th>Penulis</th>
+          <th>Penerbit</th>
+          <th>
+            Jumlah Halaman
+            <button onclick="selectionSortAsc(4)">
+              <i class="ri-sort-asc"></i>
+            </button>
+            <button onclick="selectionSortDesc(4)">
+              <i class="ri-sort-desc"></i>
+            </button>
+          </th>
+          <th>
+            Stok
+            <button onclick="selectionSortAsc(5)">
+              <i class="ri-sort-asc"></i>
+            </button>
+            <button onclick="selectionSortDesc(5)">
+              <i class="ri-sort-desc"></i>
+            </button>
+          </th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="tablebody"></tbody>
+      <tbody id="searchedTableBody"></tbody>
+    </table>
+    <div class="tambahbtn">
+      <button onclick="showTambahdata()" class="tambahData">
+        Tambah Data Buku
+      </button>
+    </div>
+    <button
+      onclick="window.location.reload()"
+      style="display: none"
+      id="backbtn"
+    >
+      back
+    </button>
+    <div class="hasil"></div>
+    <script src="script/script.js"></script>
+  </body>
+</html>

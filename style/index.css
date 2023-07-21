@@ -1,0 +1,35 @@
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 4rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4rem;
+  min-height: 100vh;
+  background-image: url("../src/bg.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+a {
+  padding: 2px 10px;
+  border-radius: 5px;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #000000;
+}
+
+.judul {
+  text-align: right;
+}

@@ -1,10 +1,11 @@
-var form = document.getElementsByClassName("tambah-data");
+const form = document.getElementsByClassName("tambah-data");
 let isShown = false;
 var data = [];
 const getInput = (id) => document.getElementById(id).value;
 const getElement = (id) => document.getElementById(id);
 const tableSearch = getElement("searchedTableBody");
 const tableNormal = getElement("tablebody");
+const judul = getElement("judul");
 
 function check(event) {
   event.preventDefault();
@@ -141,6 +142,7 @@ function selectionSortDesc(index) {
 }
 
 let tableShown = false;
+let found = false;
 function searchData() {
   const searchedData = getInput("cari");
   for (let i = 0; i < data.length; i++) {
@@ -148,12 +150,17 @@ function searchData() {
       generateTableSearched();
       if (!tableShown) {
         tableNormal.remove();
+        judul.innerHTML = `buku "${searchedData}" ditemukan tersedia ${data[i][5]}`;
         tableShown = true;
+        found = true;
       } else {
         tableSearch.remove();
         tableShown = false;
       }
     }
+  }
+  if (found === false) {
+    alert(`buku "${searchedData}" tidak ditemukan`);
   }
 }
 
