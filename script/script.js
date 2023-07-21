@@ -60,6 +60,12 @@ function generateTable() {
       row.appendChild(cell);
     }
 
+    const editButton = document.createElement("td");
+    const editText = document.createTextNode("Edit");
+    editButton.appendChild(editText);
+    editButton.addEventListener("click", () => editData(i));
+    row.appendChild(editButton);
+
     const deleteButton = document.createElement("td");
     const deleteText = document.createTextNode("Delete");
     deleteButton.appendChild(deleteText);
@@ -69,6 +75,61 @@ function generateTable() {
     tableBody.appendChild(row);
     saveData();
   }
+}
+
+let updateBook = 0;
+
+function editData(index) {
+  const updateForm = getElement("updateForm");
+  const [
+    namaBuku,
+    tahunBuku,
+    penulisBuku,
+    penerbitBuku,
+    halamanBuku,
+    stokBuku,
+  ] = data[index];
+
+  updateBook = index;
+
+  // Populate the form with the existing data
+  document.getElementById("updatedNama").value = namaBuku;
+  document.getElementById("updatedTahun").value = tahunBuku;
+  document.getElementById("updatedPenulis").value = penulisBuku;
+  document.getElementById("updatedPenerbit").value = penerbitBuku;
+  document.getElementById("updatedHalaman").value = halamanBuku;
+  document.getElementById("updatedStok").value = stokBuku;
+
+  // Show the update form
+  updateForm.style.display = "flex";
+}
+
+function updateData() {
+  const updatedNama = getInput("updatedNama");
+  const updatedTahun = getInput("updatedTahun");
+  const updatedPenulis = getInput("updatedPenulis");
+  const updatedPenerbit = getInput("updatedPenerbit");
+  const updatedHalaman = getInput("updatedHalaman");
+  const updatedStok = getInput("updatedStok");
+
+  const updatedData = [
+    updatedNama,
+    updatedTahun,
+    updatedPenulis,
+    updatedPenerbit,
+    updatedHalaman,
+    updatedStok,
+  ];
+
+  const updateForm = document.getElementById("updateForm");
+  updateForm.style.display = "none";
+
+  // Update the data in the data array
+  const selectedIndex = updateBook;
+  data[selectedIndex] = updatedData;
+
+  generateTable();
+  saveData();
 }
 
 function showTambahdata() {

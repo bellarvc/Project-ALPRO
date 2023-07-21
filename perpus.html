@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perpustakaan</title>
+    <link rel="shortcut icon" href="src/favicon.svg" type="image/x-icon">
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -26,13 +27,33 @@
       <label for="penulis">Penulis : </label>
       <input type="text" id="penulis" />
       <label for="penerbit">Penerbit : </label>
-      <input type="text" id="penerbit" />
+      <input type="email" id="penerbit" />
       <label for="halaman">Jumlah Halaman : </label>
       <input type="text" id="halaman" />
       <label for="stok">Jumlah Stok : </label>
       <input type="number" id="stok" />
       <button onclick="check(event)">print</button>
     </form>
+    <form id="updateForm" style="display: none">
+      <button class="closebtn" onclick="closeUpdateForm()">
+        <i class="ri-close-fill"></i>
+      </button>
+      <h3>Update Data Buku</h3>
+      <label for="updatedNama">Nama : </label>
+      <input type="text" id="updatedNama" required />
+      <label for="updatedTahun">Tahun Terbit : </label>
+      <input type="number" id="updatedTahun" required />
+      <label for="updatedPenulis">Penulis : </label>
+      <input type="text" id="updatedPenulis" required />
+      <label for="updatedPenerbit">Penerbit : </label>
+      <input type="text" id="updatedPenerbit" required />
+      <label for="updatedHalaman">Jumlah Halaman : </label>
+      <input type="number" id="updatedHalaman" required />
+      <label for="updatedStok">Jumlah Stok : </label>
+      <input type="number" id="updatedStok" required />
+      <button onclick="updateData()">Update</button>
+    </form>
+
     <table>
       <thead>
         <tr>
@@ -66,7 +87,7 @@
               <i class="ri-sort-desc"></i>
             </button>
           </th>
-          <th>Aksi</th>
+          <th colspan="2">Aksi</th>
         </tr>
       </thead>
       <tbody id="tablebody"></tbody>
